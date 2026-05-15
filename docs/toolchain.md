@@ -1,15 +1,7 @@
-  # C Toolchain
+# Toolchain
 
-  - State: scaffold-only next-20 prep
-  - Toolchain source: `built-in`
-
-  ## Planned commands after promotion
-    - `clang --version`
-- `cc --version`
-
-  ## Scaffold-time checks
-  - `python3 scripts/validate_scaffold.py`
-  - `/nix/var/nix/profiles/default/bin/nix --extra-experimental-features 'nix-command flakes' flake lock`
-
-  ## Current limitation
-  - Apple clang is the canonical host compiler.
+- Host compiler: Apple clang / system `cc`
+- Native build: `make build`
+- Native tests: `make test`
+- Docker runtime: `alpine:3.20`
+- CI: native Makefile lane plus Docker smoke lane

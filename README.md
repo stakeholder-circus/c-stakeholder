@@ -1,34 +1,23 @@
 > [!WARNING]
-> This repository is AI-assisted and manually reviewed. It is currently a local-only scaffold in the next-20 autonomous sprint.
+> This repository is AI-assisted and manually reviewed. It is local-only in the next-20 deterministic sprint.
 
 # c-stakeholder
 
-C scaffold under stakeholder-circus.
+C implementation of the stakeholder deterministic first tranche.
 
-## Status
-- Selected for the next-20 autonomous sprint.
-- Local-only scaffold; no upstream tracking and no publication yet.
-- Default branch remains `main`; active work happens on the repo-specific baseline branch.
+## Current tranche
 
-## Role
-- Deterministic full-parity target for the next-20 wave.
-- First tranche target is `classic-six + modern-core` with grouped fallback for later families.
-- Full live-provider/runtime support remains a required follow-on wave.
+- Full dedicated `classic-six + modern-core` generator families.
+- Grouped fallback for later generator families.
+- Deterministic normalized JSON with same-seed stability.
+- `--list-values`, `--focus-family`, `--output-format`, `--seed`, and explicit `--experimental-provider` fail-fast.
+- Full live-provider/runtime support remains deferred to the later provider wave.
 
-## Planned toolchain contract
-- Toolchain source: `built-in`
-- See [docs/toolchain.md](docs/toolchain.md) for exact prep commands.
+## Commands
 
-## Current guardrail
-- Missing behavior must fail fast and be recorded in `GAPS.md`.
-- The scaffold baseline is authoritative until implementation starts.
-- Apple clang is the canonical host compiler.
-
-## Documentation
-- [STATUS.md](STATUS.md)
-- [PARITY.md](PARITY.md)
-- [GAPS.md](GAPS.md)
-- [docs/remotes.md](docs/remotes.md)
-- [docs/provenance.md](docs/provenance.md)
-- [docs/toolchain.md](docs/toolchain.md)
-- [docs/traceability/first-push-families.md](docs/traceability/first-push-families.md)
+- `python3 scripts/validate_scaffold.py`
+- `make compiler-proof`
+- `make test`
+- `./build/c-stakeholder --list-values`
+- `./build/c-stakeholder --output-format json --focus-family code_analyzer --seed 123`
+- `docker build -t c-stakeholder .`
